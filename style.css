@@ -205,8 +205,11 @@ section .title::after{
     padding: 12px 36px;
     margin-top: 20px;
     border-radius: 6px;
-    border: solid crimson;
+    border: none;
     transition: all 0.3 ease;
+}
+.about .about-content .button:hover {
+    background-color: #2980b9;
 }
 /*service section start*/
 .services {
@@ -237,6 +240,9 @@ section .title::after{
 }
 .services .services-content .card:hover{
     background: cadetblue;
+}
+.services .services-content .card:hover a {
+    color:#2980b9 !important;
 }
 .services .services-content .card:hover i{
     color: #fff;
@@ -296,7 +302,7 @@ section .title::after{
 }
 /* contact style section */
 .contact .title::after{
-    content: "get my touch";
+    content: "get in touch";
 }
 .contact .contact-content .column{
     width: calc(50%-30px)
@@ -461,4 +467,24 @@ footer span a{
     .home .home-content .text-3{
         font-size: 27px;
     }
+}
+.buttons {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: cadetblue;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #2980b9;
 }
