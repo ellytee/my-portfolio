@@ -77,7 +77,7 @@ background-size: cover;
 .home{
     display: flex;    
     height: 100vh;
-    background: #111/*url("images/elton2.jpeg") no-repeat center*/;
+    background: url("images/Home.png") no-repeat center;
     
     color: #fff;
     min-height: 500px;
@@ -262,12 +262,31 @@ section .title::after{
 
 /*skills section start*/
 .skills .title::after{
-    content: "what  know";
+    content: "what I know";
+}
+.skills .skills-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .skills .skills-content .column{
     width: calc(50% - 30px);
-
 }
+.skills .skills-content .box {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+.skills .skills-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills .skills-content ul li {
+    margin-bottom: 10px;
+}
+
 .skills .skills-content .left .text{
     font-size: 20px;
     font-weight: 600;
@@ -301,6 +320,10 @@ section .title::after{
     background: crimson;
 }
 /* contact style section */
+.contact {
+    color: #fff;
+    background: url('images/Contact.png');
+}
 .contact .title::after{
     content: "get in touch";
 }
@@ -335,7 +358,7 @@ section .title::after{
     font-weight: 500;
 }
 .contact .contact-content  .info .sub-title{
-    color: rgb(53, 109, 109) ;
+    color:#fff ;
 }
 .contact .contact-content  .info .a{
     color: cadetblue;
@@ -369,6 +392,9 @@ footer span a{
     }
 }
 @media (max-width: 961px){
+    .home{
+        background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('images/homepg.jpg');
+    }
     .max-width{
         padding: 0 50px;
     }
@@ -378,6 +404,10 @@ footer span a{
 @media (max-width: 947px){
     .max-width{
         padding: 0 50px;
+    }
+    .skills .skills-content .card {
+        width: 100%;
+        margin-bottom: 20px;
     }
     .menu-btn{
         display: block;
