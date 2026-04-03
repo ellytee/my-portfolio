@@ -50,6 +50,7 @@ html{
 }
 .navbar .menu li a{
     display: block;
+    position: relative;
     color: #fff;
     font-size: 18px;
     font-weight: 500;
@@ -112,7 +113,7 @@ background-size: cover;
     margin-top: 20px;
     border-radius: 6px;
     border: solid crimson;
-    transition: all 0.3 ease;
+    transition: all 0.3s ease;
 }
 .home .home-content a:hover{
     color:cadetblue;
@@ -137,7 +138,7 @@ section .title{
     position: relative;
     text-align: center;
     font-size: 40px;
-    font-weight: 500px;
+    font-weight: 500;
     margin-bottom: 60px;
     padding-bottom: 20px;
     font-family: 'Ubuntu',sans-serif ;
@@ -187,7 +188,7 @@ section .title::after{
 }
 .about .about-content .right .text{
     font-size: 25px;
-    font-weight: 600px;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 .about .about-content .right .text span{
@@ -206,7 +207,7 @@ section .title::after{
     margin-top: 20px;
     border-radius: 6px;
     border: none;
-    transition: all 0.3 ease;
+    transition: all 0.3s ease;
 }
 .about .about-content .button:hover {
     background-color: #2980b9;
@@ -328,7 +329,7 @@ section .title::after{
     content: "get in touch";
 }
 .contact .contact-content .column{
-    width: calc(50%-30px)
+    width: calc(50% - 30px);
 }
 .contact .contact-content .text{
     font-size: 20px;
@@ -381,8 +382,8 @@ footer span a{
 }
 @media (max-width: 1104px){
     .about .about-content .left img{
-        height: 350;
-        width: 350;
+        height: 350px;
+        width: 350px;
     }
     .about .about-content .right{
         flex: 100%;
@@ -424,7 +425,7 @@ footer span a{
         top: 0;
         background: #111;
         text-align: center;
-        transition: all 0.3 ease;
+        transition: all 0.3s ease;
     }
     .navbar .menu.active{
         left: 0;
@@ -453,7 +454,7 @@ footer span a{
         max-width: 800px;
     }
     .about .about-content .column{
-        width: 10 0%;
+        width: 100%;
     }
     .about .about-content .left{
         display: flex;
@@ -517,4 +518,156 @@ footer span a{
 
 .button:hover {
     background-color: #2980b9;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== HERO ENHANCEMENTS ===== */
+.home {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.65) 0%, rgba(95,158,160,0.3) 100%);
+    z-index: 0;
+}
+.home .max-width {
+    position: relative;
+    z-index: 1;
+}
+.home .home-content .text-1 {
+    animation: fadeInDown 0.8s ease both;
+}
+.home .home-content .text-2 {
+    animation: fadeInDown 0.8s ease 0.15s both;
+}
+.home .home-content .text-3 {
+    animation: fadeInDown 0.8s ease 0.3s both;
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-22px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* scroll-down arrow */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    animation: bounce 2s ease-in-out infinite;
+}
+.scroll-down a {
+    color: rgba(255,255,255,0.8);
+    font-size: 26px;
+    display: block;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    transition: color 0.3s ease;
+}
+.scroll-down a:hover {
+    color: cadetblue;
+    background: none !important;
+}
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%       { transform: translateX(-50%) translateY(10px); }
+}
+
+/* ===== NAVBAR UNDERLINE + ACTIVE ===== */
+.navbar .menu li a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: cadetblue;
+    transition: width 0.3s ease;
+}
+.navbar .menu li a:hover::after,
+.navbar .menu li a.active-link::after {
+    width: 100%;
+}
+.navbar.sticky .menu li a::after {
+    background: #fff;
+}
+.navbar.sticky {
+    box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+
+/* ===== PROFILE PHOTO ===== */
+.about .about-content .left img {
+    border-radius: 50% !important;
+    border: 4px solid cadetblue;
+    box-shadow: 0 0 0 10px rgba(95,158,160,0.18), 0 10px 30px rgba(0,0,0,0.12);
+    animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-14px); }
+}
+
+/* ===== SERVICES CARD LIFT ===== */
+.services .services-content .card {
+    border-top: 3px solid transparent;
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.services .services-content .card:hover {
+    border-top-color: cadetblue;
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== SKILL PILLS ===== */
+.skills .skills-content ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+.skills .skills-content ul li {
+    display: inline-block;
+    background: linear-gradient(135deg, #5f9ea0, #4682b4);
+    color: #fff;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 5px 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: default;
+}
+.skills .skills-content ul li:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(95,158,160,0.45);
+}
+.skills .skills-content .box {
+    background: #f4f8fb;
+}
+
+/* ===== CONTACT ICON COLORS ===== */
+.contact .contact-content .row i {
+    font-size: 22px;
+    color: cadetblue;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    text-align: center;
 }
